@@ -88,46 +88,59 @@ document.getElementById("flightform").addEventListener("submit", function(event)
   const guests = document.getElementById("guests").value;
   const roomType = document.getElementById("roomType").value;
 
-    if (!city || !checkin || !checkout || guests <= 0 || !roomType) {
-      alert("⚠️ Please fill all fields correctly.");
-      return;
-    }
+if (!city || !checkin || !checkout || guests <= 0) {
+    alert("⚠️ Please fill all hotel booking fields correctly.");
+    return;
+  }
 
-    // 💰 Set price per night depending on hotel type
-    let pricePerNight;
-    switch (roomType) {
-      case "Standard Room":
-        pricePerNight = 1500;
-        break;
-      case "Deluxe Room":
-        pricePerNight = 2500;
-        break;
-      
-        case "Executive Room":
-        pricePerNight = 3500;
-        break;
-        case "Suite":
-        pricePerNight = 4000;
-        break;
-      default:
-        pricePerNight = 2000;
-    }
+  // Sample hotel data (can be dynamic)
+  const hotels = {
+    Goa: [
+      { name: "Goa Grand Resort", type: "Standard Room", price: 1800 },
+      { name: "Beachside Villa", type: "Suite", price: 4000 },
+    ],
+    Mumbai: [
+      { name: "Mumbai Palace", type: "Deluxe Room", price: 3000 },
+      { name: "City Hotel", type: "Executive Room", price: 3500 },
+    ],
+    Delhi: [
+      { name: "Hotel Royale", type: "Standard Room", price: 1500 },
+      { name: "Capital Residency", type: "Executive Room", price: 2800 },
+    ],
+    Bangalore: [
+      { name: "Silicon Stay", type: "Deluxe Room", price: 2500 },
+      { name: "Garden Inn", type: "Suite", price: 3800 },
+    ],
+  };
 
-    // 📅 Calculate number of nights
-    const start = new Date(checkin);
-    const end = new Date(checkout);
-    const diffTime = end - start;
-    const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const resultsDiv = document.getElementById("hotelResults");
+  resultsDiv.innerHTML = `<h4>Available hotels in ${city} from ${checkin} to ${checkout}:</h4>`;
 
-    if (nights <= 0) {
-      alert("⚠️ Check-out must be after check-in.");
-      return;
-    }
+  const nights =
+    (new Date(checkout) - new Date(checkin)) / (1000 * 60 * 60 * 24);
 
-    const total = pricePerNight * nights * guests;
+  if (nights <= 0) {
+    alert("⚠️ Check-out must be after check-in.");
+    return;
+  }
 
-    document.getElementById("hotelSummary").innerText =
-      `🏨 Hotel booked in ${city} from ${checkin} to ${checkout} (${nights} night${nights > 1 ? 's' : ''}) for ${guests} guest(s) in a ${roomType} room. Total: ₹${total}`;
+  hotels[city].forEach((hotel) => {
+    const total = hotel.price * nights * guests;
 
-    alert( `🎉 Your hotel has been booked! : ${city} from ${checkin} to ${checkout} (${nights} night${nights > 1 ? 's' : ''}) for ${guests} guest(s) in a ${roomType} room. Total: ₹${total}`);
+    const hotelCard = document.createElement("div");
+    hotelCard.style.border = "1px solid #ccc";
+    hotelCard.style.padding = "10px";
+    hotelCard.style.margin = "10px 0";
+    hotelCard.style.borderRadius = "10px";
+
+    hotelCard.innerHTML = `
+      <h5>${hotel.name}</h5>
+      <p>Room Type: ${hotel.type}</p>
+      <p>Price per night: ₹${hotel.price}</p>
+      <p>Total for ${nights} night(s): ₹${total}</p>
+      <button onclick="alert('🎉 Hotel booked: ${hotel.name}')">Book Now</button>
+    `;
+
+    resultsDiv.appendChild(hotelCard);
   });
+});

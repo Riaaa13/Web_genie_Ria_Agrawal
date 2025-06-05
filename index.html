@@ -7,13 +7,31 @@
     </head>
     <body>
         <header>
-           TripNBook
+           <div class ="title">
+            <span class ="title1"> TripNBook</span>
+           </div>
+
+           <div class="header-container">
+
+           <nav>
+           <div class="nav-links">
+               <ul>
+                  <li><a href="">Help</a></li>
+                  <li><a href="">Log in</a></li>
+                  <li><a href="">CONTACT</a></li>
+
+               </ul>
+
+           </div>
+        </nav>
+        </div> 
 
 
         </header>
 
 
         <section class ="movie-selection">
+            <img src="images/logo.1.jpg"  class="logo">
             <h1> BOOK A MOVIE</h1>
             <form id="movieform">
                 
@@ -136,10 +154,13 @@
                     <option value ="Suite">Suite</option>
                     
                 </select>
-                <button type="submit">Book Hotel</button>
+                <button type="submit" id="searchHotelBtn">Search Hotels</button>
+                <div id="hotelResults"></div>
+                 
 
 
             </form>
+             
             <p id ="hotelSummary"></p>
 
         </section>
