@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title> Book Your Ticet</title>
+        <link rel ="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <header>
+           TripNBook
+
+
+        </header>
+
+
+        <section class ="movie-selection">
+            <h1> BOOK A MOVIE</h1>
+            <form id="movieform">
+                
+                
+                    <label for="movie"> Choose a movie:</label>
+                    <select id="movie">
+                        <option value="200">Inception -200/-</option>
+                        <option value="300">The Shuttle Island -300/-</option>
+                        <option value="200">Interstellar -200/-</option>
+                        <option value="200">Titanic -200/-</option>
+                        <option value="180">The matrix- 180/-</option>
+                    </select>
+                
+                <div class="container">
+                <div class ="screen"></div>
+                <div class ="row">
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat occupied"></div>
+                    <div class ="seat occupied"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                </div>
+                <div class ="row">
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                </div>
+                <div class ="row">
+                    <div class ="seat"></div>
+                    <div class ="seat occupied"></div>
+                    <div class ="seat occupied"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                </div>
+                <div class ="row">
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat occupied"></div>
+                    <div class ="seat occupied"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                    <div class ="seat"></div>
+                </div>
+            </div>
+
+            
+                
+            <div class="summary">
+                <p>You have selected <span id="count">0</span> seat(s) for a price of ₹<span id="total">0</span></p>
+                <button id="bookBtn">Book Tickets</button>
+            </div>
+            </form>
+            </section>
+            
+        
+
+        <section class= "flight-selection">
+           <h2> BOOK A FLIGHT</h2>
+           <form id="flightform">
+            <label> From:</label>
+            <select id="fromcity">
+                <option value ="Delhi">DELHI </option>
+                <option value="Mumbai">MUMBAI</option>
+                <option value="Banglore">BANGLORE</option>
+                <option value ="Chennai">CHENNAI</option>
+            </select>
+
+            <label>To:</label>
+
+            <select id="tocity">
+                <option value ="Delhi">DELHI </option>
+                <option value="Mumbai">MUMBAI</option>
+                <option value="Banglore">BANGLORE</option>
+                <option value ="Chennai">CHENNAI</option>
+            </select>
+            <label> Date: </label>
+            <input type ="date" id="flightDate">
+            <label> Passengers:</label> 
+            <input type ="number" id ="passengers" min ="1" value ="1">
+            <button type="submit" id="bookBtn">Book Flight</button>
+        
+        </form>
+        <p id ="flightSummary"></p>
+        </section>
+
+        <section class ="Hotelbooking">
+            <h3> BOOK A HOTEL</h3>
+            <form id="hotelform">
+                <label> City:</label>
+                <select id ="hotelcity">
+                    <option value ="Goa">Goa</option>
+                    <option value ="Mumbai">Mumbai</option>
+                    <option value ="Delhi">Delhi</option>
+                    <option value ="Banglore">Banglore</option>
+                    <option value ="Chennai">Chennai</option>
+                </select>
+                <label> Check-in:</label>
+                <input type="date" id="checkin">
+                <label> Check-out:</label>
+                <input type="date" id="checkout">
+                <label> No. Of Guests:</label>
+                <input type ="number" id ="guests" min ="1" value ="1">
+                <label> Room type:</label>
+                <select id ="roomType">
+                    <option value ="Standard Room">Standard Room</option>
+                    <option value ="Deluxe Room">Deluxe Room</option>
+                    <option value ="Executive Room">Executive Room</option>
+                    <option value ="Suite">Suite</option>
+                    
+                </select>
+                <button type="submit">Book Hotel</button>
+
+
+            </form>
+            <p id ="hotelSummary"></p>
+
+        </section>
+
+
+          <script src="script.js"></script>
+        
+    </body>
+</html>
